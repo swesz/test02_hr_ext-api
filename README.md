@@ -34,9 +34,11 @@ python hr_app.py
 4. Use **Postman** to test API requests.
 
 ## API Endpoints
-Authentication & Employee Management
+Authentication & Add employees
 - **POST** `/register` – Register a new employee
 - **POST** `/login` – Authenticate employee & get JWT token for Admin access
+
+Employee Management (Token required)
 - **GET** `/employees` – Retrieve employee list
 - **GET** `/employees/<id>` – Retrieve a single employee by ID
 - **PUT** `/employees/<id>` – Update an existing employee by ID
@@ -44,7 +46,7 @@ Authentication & Employee Management
 
 Payroll Management (Token required)
 - **POST** `/payroll` – Create an initial payroll record for an employee
-- **GET** `/payroll` – Retrieve all payroll records (Admin only)
+- **GET** `/payroll` – Retrieve all payroll records
 - **GET** `/payroll/<employee_id>` – Retrieve payroll details for a specific employee
 - **PUT** `/payroll/<employee_id>` – Update payroll details (gross salary, tax deductions, etc.)
 - **DELETE** `/payroll/<employee_id>` – Delete a payroll record
@@ -52,7 +54,7 @@ Payroll Management (Token required)
 
 Leave Requests (Token required)
 - **POST** `/leave-request` – Submit a leave request
-- **GET** `/leave-requests` – Retrieve all leave requests (Admin only)
+- **GET** `/leave-requests` – Retrieve all leave requests
 - **GET** `/leave-requests/<employee_id>` – Retrieve leave requests for a specific employee
 - **PUT** `/leave-request/<id>` – Update an existing leave request (e.g., change status to "Approved")
 - **DELETE** `/leave-request/<id>` – delete a leave request
@@ -64,7 +66,7 @@ Time Tracking (Token required)
 
 Employee Benefits (Token required)
 - **POST** `/benefits` – Enroll an employee in benefits (health insurance, retirement, vacation days)
-- **GET** `/benefits` – Retrieve all benefits records (Admin only)
+- **GET** `/benefits` – Retrieve all benefits records
 - **GET** `/benefits/<employee_id>` – Retrieve benefits for a specific employee
 - **PUT** `/benefits/<employee_id>` – Update an employee's benefits (modify health, retirement, or vacation days)
 - **DELETE** `/benefits/<employee_id>` – Remove an employee's benefits
