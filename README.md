@@ -34,13 +34,13 @@ python hr_app.py
 4. Use **Postman** to test API requests.
 
 ## API Endpoints
-- Authentication & Employee Management
-**POST** `/register` – Register a new employee
-**POST** `/login` – Authenticate employee & get JWT token for Admin access
-**GET** `/employees` – Retrieve employee list
-**GET** `/employees/<id>` – Retrieve a single employee by ID
-**PUT** `/employees/<id>` – Update an existing employee by ID
-**DELETE** `/employees/<id>` – Delete an employee by ID
+Authentication & Employee Management
+- **POST** `/register` – Register a new employee
+- **POST** `/login` – Authenticate employee & get JWT token for Admin access
+- **GET** `/employees` – Retrieve employee list
+- **GET** `/employees/<id>` – Retrieve a single employee by ID
+- **PUT** `/employees/<id>` – Update an existing employee by ID
+- **DELETE** `/employees/<id>` – Delete an employee by ID
 
 - Payroll Management (Token required)
 **POST** `/payroll` – Create an initial payroll record for an employee
