@@ -22,13 +22,13 @@ def register_employee():
     db.session.commit()
     return jsonify({"message": "Employee registered successfully!"})
 
-# Login
+# Login (retrieve jwt access token)
 @hr_app.route('/login', methods=['POST'])
 def login():
     data = request.json
     employee = Employee.query.filter_by(email=data['email']).first()
     if employee and bcrypt.check_password_hash(employee.password_hash, data['password']):
-        access_token = create_access_token(identity="employee.id")
+        access_token = create_access_token(identity="employee.id") #"" to solve token error
         return jsonify(access_token=access_token)
     return jsonify({"message": "Invalid credentials"}), 401
 
