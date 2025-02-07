@@ -16,6 +16,11 @@ This project is a **Human Resources & Payroll REST API**, designed to mimic HR s
 - Marshmallow (Data serialization)
 - JWT Authentication
 
+## Files
+- app.py (main app initializer:	starts Flask app, loads configurations, imports routes)
+- models.py	(database structure: tables and relationships)
+- routes.py	(handles API requests: endpoints for CRUD operations)
+
 ## How to Run
 1. Clone this repository: 
 git clone https://github.com/USERNAME/test02_hr_ext-api.git
@@ -34,9 +39,12 @@ python hr_app.py
 - **GET** `/employees` – Retrieve employee list (Admin only)
 - **PUT** `/employees/<id>` – Update an existing employee by ID
 - **DELETE** `/employees/<id>` – Deletes an employee by ID
-- **POST** `/process-payroll` – Process employee salary  
-- **POST** `/leave-request` – Submit a leave request
-- features tba
+- **POST** /payroll – Create an initial payroll record for an employee
+- **GET** /payroll – Retrieve all payroll records (Admin only)
+- **GET** /payroll/<employee_id> – Retrieve payroll details for a specific employee
+- **PUT** /payroll/<employee_id> – Update payroll details (gross salary, tax deductions, etc.)
+- **DELETE** /payroll/<employee_id> – Delete a payroll record
+- **POST** /process-payroll – Calculate and update the net salary for an employee
 
 ## License
 MIT License
