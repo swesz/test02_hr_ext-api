@@ -35,44 +35,39 @@ python hr_app.py
 
 ## API Endpoints
 - Authentication & Employee Management
+**POST** `/register` – Register a new employee
+**POST** `/login` – Authenticate employee & get JWT token for Admin access
+**GET** `/employees` – Retrieve employee list
+**GET** `/employees/<id>` – Retrieve a single employee by ID
+**PUT** `/employees/<id>` – Update an existing employee by ID
+**DELETE** `/employees/<id>` – Delete an employee by ID
 
-    **POST** `/register` – Register a new employee
-    **POST** `/login` – Authenticate employee & get JWT token for Admin access
-    **GET** `/employees` – Retrieve employee list
-    **GET** `/employees/<id>` – Retrieve a single employee by ID
-    **PUT** `/employees/<id>` – Update an existing employee by ID
-    **DELETE** `/employees/<id>` – Delete an employee by ID
+- Payroll Management (Token required)
+**POST** `/payroll` – Create an initial payroll record for an employee
+**GET** `/payroll` – Retrieve all payroll records (Admin only)
+**GET** `/payroll/<employee_id>` – Retrieve payroll details for a specific employee
+**PUT** `/payroll/<employee_id>` – Update payroll details (gross salary, tax deductions, etc.)
+**DELETE** `/payroll/<employee_id>` – Delete a payroll record
+**POST** `/process-payroll` – Calculate and update the net salary for an employee
 
-- Payroll Management 
+- Leave Requests (Token required)
+**POST** `/leave-request` – Submit a leave request
+**GET** `/leave-requests` – Retrieve all leave requests (Admin only)
+**GET** `/leave-requests/<employee_id>` – Retrieve leave requests for a specific employee
+**PUT** `/leave-request/<id>` – Update an existing leave request (e.g., change status to "Approved")
+**DELETE** `/leave-request/<id>` – delete a leave request
 
-    **POST** `/payroll` – Create an initial payroll record for an employee
-    **GET** `/payroll` – Retrieve all payroll records (Admin only)
-    **GET** `/payroll/<employee_id>` – Retrieve payroll details for a specific employee
-    **PUT** `/payroll/<employee_id>` – Update payroll details (gross salary, tax deductions, etc.)
-    **DELETE** `/payroll/<employee_id>` – Delete a payroll record
-    **POST** `/process-payroll` – Calculate and update the net salary for an employee
+- Time Tracking (Token required)
+**POST** `/time-tracking/clock-in` – Clock in an employee (record work start time)
+**PUT** `/time-tracking/clock-out/<id>` – Clock out an employee and update hours worked
+**GET** `/time-tracking` – Retrieve all time tracking records
 
-- Leave Requests
-
-    **POST** `/leave-request` – Submit a leave request
-    **GET** `/leave-requests` – Retrieve all leave requests (Admin only)
-    **GET** `/leave-requests/<employee_id>` – Retrieve leave requests for a specific employee
-    **PUT** `/leave-request/<id>` – Update an existing leave request (e.g., change status to "Approved")
-    **DELETE** `/leave-request/<id>` – delete a leave request
-
-- Time Tracking
-
-    **POST** `/time-tracking/clock-in` – Clock in an employee (record work start time)
-    **PUT** `/time-tracking/clock-out/<id>` – Clock out an employee and update hours worked
-    **GET** `/time-tracking` – Retrieve all time tracking records
-
-- Employee Benefits
-
-    **POST** `/benefits` – Enroll an employee in benefits (health insurance, retirement, vacation days)
-    **GET** `/benefits` – Retrieve all benefits records (Admin only)
-    **GET** `/benefits/<employee_id>` – Retrieve benefits for a specific employee
-    **PUT** `/benefits/<employee_id>` – Update an employee's benefits (modify health, retirement, or vacation days)
-    **DELETE** `/benefits/<employee_id>` – Remove an employee's benefits
+- Employee Benefits (Token required)
+**POST** `/benefits` – Enroll an employee in benefits (health insurance, retirement, vacation days)
+**GET** `/benefits` – Retrieve all benefits records (Admin only)
+**GET** `/benefits/<employee_id>` – Retrieve benefits for a specific employee
+**PUT** `/benefits/<employee_id>` – Update an employee's benefits (modify health, retirement, or vacation days)
+**DELETE** `/benefits/<employee_id>` – Remove an employee's benefits
 
 
 ## License
